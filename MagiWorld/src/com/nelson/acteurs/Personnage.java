@@ -22,6 +22,9 @@ abstract class Personnage {
 		do {
 			System.out.println("Niveau du personnage ?");
 			this.niveau = sc.nextInt();
+			if (this.niveau > 100) {
+				System.out.println("Votre niveau ne peut etre superieur à  100.");
+			}
 			sc.nextLine();
 		}while(this.niveau < 0 || this.niveau > 100);
 		
@@ -31,6 +34,9 @@ abstract class Personnage {
 		do {
 			System.out.println("Force du personnage ?");
 			this.force = sc.nextInt();
+			if(this.force > this.niveauMax) {
+				System.out.println("le total force + agilité + intelligence doit être égal au niveau du joueur");
+			}
 			sc.nextLine();
 		}while( this.force > this.niveauMax);
 		
@@ -39,6 +45,9 @@ abstract class Personnage {
 		do {
 			System.out.println("Agilité du personnage ?");
 			this.agilite = sc.nextInt();
+			if(this.agilite > this.niveauMax) {
+				System.out.println("le total force + agilité + intelligence doit être égal au niveau du joueur");
+			}
 			sc.nextLine();
 		}while( this.agilite > this.niveauMax);
 		
@@ -47,6 +56,9 @@ abstract class Personnage {
 		do {
 			System.out.println("Intelligence du personnage ?");
 			this.intelligence = sc.nextInt();
+			if(this.intelligence > this.niveauMax) {
+				System.out.println("le total force + agilité + intelligence doit être égal au niveau du joueur");
+			}
 			sc.nextLine();
 		}while( this.intelligence > this.niveauMax);
 		
@@ -54,8 +66,8 @@ abstract class Personnage {
 	};
 	
 	abstract void presentationJoueur();
-	abstract void attaqueBasique();
-	abstract void attaqueSpeciale();
+	abstract void attaqueBasique(Personnage personne);
+	abstract void attaqueSpeciale(Personnage personne);
 	
 	public int getVie() {
 		return vie;

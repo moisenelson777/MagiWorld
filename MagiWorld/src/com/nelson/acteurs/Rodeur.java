@@ -14,17 +14,15 @@ public class Rodeur extends Personnage {
 	}
 
 	@Override
-	void attaqueBasique() {
-		// TODO Auto-generated method stub
-		
+	void attaqueBasique(Personnage personne) {
+		System.out.println("J'effectue un tir à l'arc !");
+		personne.setVie(personne.getVie() - this.getAgilite());
 	}
 
 	@Override
-	void attaqueSpeciale() {
-		// TODO Auto-generated method stub
-		
+	void attaqueSpeciale(Personnage personne) {
+		System.out.println("J'effectue une concentration !");
+		this.setAgilite(this.niveau / 2);
 	}
 
-	
-	
 }

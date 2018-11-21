@@ -14,16 +14,17 @@ public class Guerrier extends Personnage {
 	}
 
 	@Override
-	void attaqueBasique() {
-		// TODO Auto-generated method stub
-		
+	void attaqueBasique(Personnage personne) {
+		System.out.println("Je donne un coup d'épée !");
+		personne.setVie(personne.getVie() - this.getForce());
 	}
 
 	@Override
-	void attaqueSpeciale() {
-		// TODO Auto-generated method stub
-		
+	void attaqueSpeciale(Personnage personne) {
+		System.out.println("Je donne un coup de rage");
+		personne.setVie(personne.getVie() - (this.getForce() * 2));
 	}
+
 		
 		
 }
