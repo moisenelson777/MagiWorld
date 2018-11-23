@@ -3,20 +3,17 @@ package com.nelson.acteurs;
 import java.util.Scanner;
 
 abstract class Personnage {
-
-	protected int niveau, vie, force, agilite, intelligence;
-	protected int classe = ' ';
-	protected static int nJ;
-	protected int niveauMax = 0;
-
 	
+	//Attributs du personnage
+
+	protected int niveau, vie, force, agilite, intelligence, niveauMax;
+	protected String classe ;
+	protected int leJoueur;
 
 	Scanner sc = new Scanner(System.in);
 	
-	public void creationPersonnage() {
-		
-	}
-
+	//Initialisation des caractères du personnage
+	
 	public void caracteresPersonnage() {
 		
 		do {
@@ -65,9 +62,16 @@ abstract class Personnage {
 		this.niveauMax -= this.intelligence; 
 	};
 	
+	/*Methodes abstraites du personnage implémententées au sein des classes filles
+	 *Présentation du joueur édité
+	 *Expression des différentes attaques (basique & spéciale)
+	 */
+	
 	abstract void presentationJoueur();
 	abstract void attaqueBasique(Personnage personne);
 	abstract void attaqueSpeciale(Personnage personne);
+	
+	// getters et setters des différents attributs déclarés protegés du personnage
 	
 	public int getVie() {
 		return vie;
@@ -101,18 +105,10 @@ abstract class Personnage {
 		this.intelligence = intelligence;
 	}
 
-	public static int getNJ() {
-		return nJ;
-	}
-
-	public static void setNJ(int nj) {
-		Personnage.nJ = nj;
-	}
-
-	public void setClasse(int classe) {
+	public void setClasse(String classe) {
 		this.classe = classe;
 	}
-	public int getClasse() {
+	public String getClasse() {
 		return classe;
 	}
 
